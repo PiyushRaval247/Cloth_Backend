@@ -27,8 +27,8 @@ export const createOrder = async (req, res) => {
       },
       
       redirect_urls: {
-        return_url: "https://idyllic-bienenstitch-74724f.netlify.app/shop/paypal-return",
-        cancel_url: "https://idyllic-bienenstitch-74724f.netlify.app/shop/paypal-cancel",
+        return_url: "https://playful-pie-ee1d29.netlify.app/shop/paypal-return",
+        cancel_url: "https://playful-pie-ee1d29.netlify.app/shop/paypal-cancel",
       },
       transactions: [
         {
