@@ -17,7 +17,7 @@ import {
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu"
 import { sortOptions } from '@/config';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 
 
 function createSearchParamsHelper(filterParams) {
