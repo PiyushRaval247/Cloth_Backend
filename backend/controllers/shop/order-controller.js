@@ -25,9 +25,10 @@ export const createOrder = async (req, res) => {
       payer: {
         payment_method: "paypal",
       },
+      
       redirect_urls: {
-        return_url: "https://zesty-gaufre-4f11eb.netlify.app/shop/paypal-return",
-        cancel_url: "https://zesty-gaufre-4f11eb.netlify.app/shop/paypal-cancel",
+        return_url: "https://idyllic-bienenstitch-74724f.netlify.app/shop/paypal-return",
+        cancel_url: "https://idyllic-bienenstitch-74724f.netlify.app/shop/paypal-cancel",
       },
       transactions: [
         {
