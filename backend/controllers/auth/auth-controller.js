@@ -1,10 +1,8 @@
-import User from '../../models/User.js'
-import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
+import User from "../../models/User.js";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
-
-
-  //register
+//register
 export const registerUser = async (req, res) => {
   const { username, email, password } = req.body;
 
@@ -71,16 +69,21 @@ export const loginUser = async (req, res) => {
       { expiresIn: "60m" }
     );
 
-    res.cookie("token", token, { httpOnly: true, secure: false }).json({
-      success: true,
-      message: "Logged in successfully",
-      user: {
-        email: checkUser.email,
-        role: checkUser.role,
-        id: checkUser._id,
-        userName: checkUser.username,
-      },
-    });
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: true, // ✅ secure only in production
+        sameSite: "None",
+        maxAge: 60 * 60 * 1000, // 1 hour
+      }).json({
+        success: true,
+        message: "Logged in successfully",
+        user: {
+          email: checkUser.email,
+          role: checkUser.role,
+          id: checkUser._id,
+          userName: checkUser.username,
+        },
+      });
   } catch (e) {
     console.log(e);
     res.status(500).json({
@@ -102,20 +105,21 @@ export const logoutUser = (req, res) => {
 //auth middleware
 export const authMiddleware = async (req, res, next) => {
   const token = req.cookies.token;
-  if (!token)
-    return res.status(401).json({
-      success: false,
-      message: "Unauthorised user!",
-    });
+  console.log("🔍 Token from cookie:", token);
+
+  if (!token) {
+    console.log("❌ No token found in cookie");
+    return res.status(401).json({ success: false, message: "Unauthorised user!" });
+  }
 
   try {
     const decoded = jwt.verify(token, "CLIENT_SECRET_KEY");
+    console.log("✅ Token verified:", decoded);
     req.user = decoded;
     next();
   } catch (error) {
-    res.status(401).json({
-      success: false,
-      message: "Unauthorised user!",
-    });
+    console.log("❌ Token verify failed:", error.message);
+    return res.status(401).json({ success: false, message: "Invalid or expired token" });
   }
 };
+
