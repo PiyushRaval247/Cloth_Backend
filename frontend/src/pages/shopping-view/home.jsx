@@ -27,7 +27,7 @@ import { addToCart, fetchCartItems } from "@/store/shop/cart-slice";
 import { useToast } from '@/hooks/use-toast'; 
 import ProductDetailsDialog from "../../components/shopping/product-details";
 import { getFeatureImages } from "@/store/common-slice";
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 const categoriesWithIcon = [
   { id: "men", label: "Men", icon: ShirtIcon },
   { id: "women", label: "Women", icon: CloudLightning },
