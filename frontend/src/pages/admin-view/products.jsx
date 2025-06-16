@@ -2,13 +2,13 @@ import React from 'react'
 import ProductImageUpload from '@/components/admin/image-upload';
 import AdminProductTile from '../../components/admin/product-tile.jsx';
 import CommonForm from '@/components/common/form';
-import { Button } from '@/components/ui/button';
+import { Button } from '../../components/ui/button';
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
-} from "@/components/ui/sheet"
+} from "../ui/sheet"
 import { useToast } from '@/hooks/use-toast';
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";

@@ -4,10 +4,10 @@ import {
   Sheet,
   SheetContent,
   SheetTrigger,
-} from "@/components/ui/sheet"
+} from "../ui/sheet"
 
 
-import { Button } from '@/components/ui/button';
+import { Button } from '../ui/button';
 import { Link ,useNavigate,useLocation,useSearchParams} from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
 import { useState,useEffect } from 'react';

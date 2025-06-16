@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Input } from "@/components/ui/input";
+import { Avatar, AvatarFallback } from "../ui/avatar";
+import { Button } from "../ui/button";
+import { Separator } from "../ui/separator";
+import { Input } from "../ui/input";
 import { useDispatch, useSelector } from "react-redux";
-import { Label } from "@/components/ui/label";
+import { Label } from "../ui/label";
 import { setProductDetails } from "@/store/shop/products-slice";
-import {Dialog,DialogContent,} from "@/components/ui/dialog"
+import {Dialog,DialogContent,} from "../ui/dialog"
 import { useToast } from '@/hooks/use-toast';  
 import StarRatingComponent from "../common/star-rating.jsx"
 import { addReview, getReviews } from "../../store/shop/review-slice/index.js"

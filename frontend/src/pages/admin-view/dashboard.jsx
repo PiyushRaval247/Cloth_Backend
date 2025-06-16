@@ -1,5 +1,5 @@
 import ProductImageUpload from "../../components/admin/image-upload";
-import { Button } from "@/components/ui/button";
+import { Button } from "../../components/ui/button";
 import { addFeatureImage, getFeatureImages } from "@/store/common-slice";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";

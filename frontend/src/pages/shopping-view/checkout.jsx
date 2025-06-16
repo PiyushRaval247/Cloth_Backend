@@ -2,7 +2,7 @@ import Address from "../../components/shopping/address";
 import img from "../../assets/account.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import UserCartItemsContent from "../../components/shopping/cart-items-content";
-import { Button } from "@/components/ui/button";
+import { Button } from "../../components/ui/button";
 import { useState } from "react";
 import { createNewOrder } from "@/store/shop/order-slice";
 import { Navigate } from "react-router-dom";

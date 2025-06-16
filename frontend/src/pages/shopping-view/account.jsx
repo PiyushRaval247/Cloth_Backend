@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/ui/tabs"
 import ShoppingOrders from '@/components/shopping/orders';
 import Address from '@/components/shopping/address';
 import accImg from "../../assets/account.jpg";

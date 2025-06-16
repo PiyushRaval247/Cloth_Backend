@@ -1,9 +1,9 @@
-import { Label } from "@/components/ui/label";
+import { Label } from "../ui/label";
 import { useEffect, useRef } from "react";
-import { Button } from "@/components/ui/button"
+import { Button } from "../ui/button"
 import axios from "axios";
-import { Skeleton } from "@/components/ui/skeleton";
-import { Input } from "@/components/ui/input"
+import { Skeleton } from "../ui/skeleton";
+import { Input } from "../ui/input"
 import { FileIcon, UploadCloudIcon, XIcon } from "lucide-react";
 import BASE_URL from './../../../api';
 

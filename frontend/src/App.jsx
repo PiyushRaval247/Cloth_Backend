@@ -18,7 +18,7 @@ import CheckAuth from './components/common/check-auth'
 import { useSelector,useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { checkAuth } from './store/auth-slice'
-import { Skeleton } from "@/components/ui/skeleton"
+import { Skeleton } from "../ui/skeleton"
 import PaypalReturnPage from './pages/shopping-view/paypal-return'
 import PaymentSuccessPage from './pages/shopping-view/payment-success'
 import SearchProducts from './pages/shopping-view/search'

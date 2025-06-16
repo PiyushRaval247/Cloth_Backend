@@ -14,7 +14,7 @@ import {
   SheetHeader,
   SheetTitle,
   
-} from "@/components/ui/sheet"
+} from "../ui/sheet"
 
 
 const adminSidebarMenuItems = [
