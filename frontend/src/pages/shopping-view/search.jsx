@@ -1,6 +1,6 @@
 import ProductDetailsDialog from "../../components/shopping/product-details";
 import ShoppingProductTile from "../../components/shopping/product-tile";
-import { Input } from "../ui/input";
+import { Input } from "../../components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { addToCart, fetchCartItems } from "@/store/shop/cart-slice";
 import { fetchProductDetails } from "@/store/shop/products-slice";
