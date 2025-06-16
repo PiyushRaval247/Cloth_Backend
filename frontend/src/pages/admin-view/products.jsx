@@ -8,7 +8,7 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
-} from "../ui/sheet"
+} from "../../components/ui/sheet.jsx"
 import { useToast } from '@/hooks/use-toast';
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
