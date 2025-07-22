@@ -134,6 +134,15 @@ function App() {
 
   if (isLoading) return <Skeleton className="w-[800px] h-[600px] bg-black" />;
 
+  const publicPaths = [
+    "/",
+    "/shop/home",
+    "/shop/listing",
+    "/shop/search",
+    "/shop/payment-success",
+    "/shop/paypal-return"
+  ];
+
   return (
     <div className="flex flex-col overflow-hidden bg-white">
       <Routes>
