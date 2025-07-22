@@ -57,32 +57,36 @@ import { Navigate, useLocation } from "react-router-dom";
 function CheckAuth({ isAuthenticated, user, children }) {
   const location = useLocation();
 
+  // Define which paths are public (no login required)
   const publicPaths = [
     "/",
     "/shop/home",
     "/shop/listing",
     "/shop/search",
     "/shop/payment-success",
-    "/shop/paypal-return",
+    "/shop/paypal-return"
   ];
 
-  const isPublicPath = publicPaths.some((path) =>
-    location.pathname.startsWith(path)
+  const currentPath = location.pathname;
+
+  // ✅ Check exact match or prefix match
+  const isPublic = publicPaths.some(
+    (path) => currentPath === path || currentPath.startsWith(path)
   );
 
-  // ✅ 1. If user is NOT logged in and route is NOT public, redirect to login
+  // ❌ If user is not logged in and path is NOT public → redirect to login
   if (
     !isAuthenticated &&
-    !isPublicPath &&
-    !(location.pathname.includes("/login") || location.pathname.includes("/register"))
+    !isPublic &&
+    !(currentPath.includes("/login") || currentPath.includes("/register"))
   ) {
     return <Navigate to="/auth/login" />;
   }
 
-  // ✅ 2. If user is logged in and tries to access login or register
+  // ✅ If already logged in and trying to visit login/register → redirect to dashboard/home
   if (
     isAuthenticated &&
-    (location.pathname.includes("/login") || location.pathname.includes("/register"))
+    (currentPath.includes("/login") || currentPath.includes("/register"))
   ) {
     return user?.role === "admin" ? (
       <Navigate to="/admin/dashboard" />
@@ -91,24 +95,25 @@ function CheckAuth({ isAuthenticated, user, children }) {
     );
   }
 
-  // ✅ 3. Non-admin trying to access admin
+  // ❌ Non-admin trying to access /admin
   if (
     isAuthenticated &&
     user?.role !== "admin" &&
-    location.pathname.includes("/admin")
+    currentPath.includes("/admin")
   ) {
     return <Navigate to="/unauth-page" />;
   }
 
-  // ✅ 4. Admin trying to access /shop
+  // ❌ Admin trying to access /shop
   if (
     isAuthenticated &&
     user?.role === "admin" &&
-    location.pathname.includes("/shop")
+    currentPath.includes("/shop")
   ) {
     return <Navigate to="/admin/dashboard" />;
   }
 
+  // ✅ All good, render child route
   return <>{children}</>;
 }
 

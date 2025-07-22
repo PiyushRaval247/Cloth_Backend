@@ -23,7 +23,6 @@
 // import PaymentSuccessPage from './pages/shopping-view/payment-success'
 // import SearchProducts from './pages/shopping-view/search'
 
-
 // function App() {
 //  const {isAuthenticated,user,isLoading}=useSelector((state) => state.auth)
 //  const dispatch = useDispatch();
@@ -124,7 +123,9 @@ import { checkAuth } from "./store/auth-slice";
 import { Skeleton } from "./components/ui/skeleton";
 
 function App() {
-  const { isAuthenticated, user, isLoading } = useSelector((state) => state.auth);
+  const { isAuthenticated, user, isLoading } = useSelector(
+    (state) => state.auth
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -193,4 +194,3 @@ function App() {
 }
 
 export default App;
-
